@@ -1,4 +1,7 @@
-#!/usr/bin/env node
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
+var InputModule =  require('./ProcessInput.js');
 
   console.log("give your input : ");
     process.stdin.once('data', (input) => {

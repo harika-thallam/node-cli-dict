@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 //module to process user input
 
 function processInput(input)
@@ -18,3 +19,4 @@ function processInput(input)
       console.log("arguments array size is 1");
   }
 }
+module.exports = processInput;
