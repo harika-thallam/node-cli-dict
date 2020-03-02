@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+const definition = require('./definition.js');
 //module to process user input
 
 function processInput(input)
@@ -33,6 +33,7 @@ function validate(option,word="")
   {
     case "defn"://TODO:make call to receive definition of the entered word
                 console.log(`fetching definition of ${word}`);
+                definition.getDefinition(word);
                 break;
     case "syn"://TODO:make call to receive synonym of the entered word
                 console.log(`fetching synonym of ${word}`);
