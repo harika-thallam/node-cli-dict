@@ -1,19 +1,21 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-var InputModule =  require('./ProcessInput.js');
+var InputModule =  require('./processinput.js');
 
   console.log("give your input : ");
     process.stdin.once('data', (input) => {
-    let recevive = input.toString().trim();
-    if(recevive.Length)
+    let inputOption = input.toString().trim();
+    if(inputOption.length)
     {
-        var stringArray = recevive.split(/\s+/);
-        console.log("Hello, "+ stringArray[0] + "!"+ stringArray[1]);
+        console.log("received input");
+        var stringArray = inputOption.split(/\s+/);
+        InputModule.processInput(stringArray);
     }
     else
     {
         console.log("no input");
+        InputModule.processInput();
     }
     process.exit();
 });
