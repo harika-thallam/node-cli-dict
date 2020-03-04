@@ -1,19 +1,21 @@
-const getResult = require('./httpsclient.js');
-const getDefinition = (findword) =>
+const Result = require('./httpsclient.js');
+function getDefinition (findword)
 {
     console.log("inside get definition function");
-    var request = "word/"+{findword}+"/definitions";
+    var request = "word/"+String(findword)+"/definitions";
     console.log(request);
-    async () => getResult(request)
-          .then(response => {
-              if(response.data.message)
-              {
-                console.log(response.data.message);
-              }
-          })
-          .catch(error => {
-              console.log(error);
-          })        
-
+    //var res = Result.getResult(request);
+    // console.log(res);
+    // res.then(value=>{
+    //     console.log(value.data);
+    // })
+    getData(request);
+   //console.log("promise resolved"); 
+}
+async function getData(request)
+{
+    console.log("should wait for result");
+    var res = await Result.getResult(request);
+    console.log(res);
 }
 module.exports.getDefinition = getDefinition;
