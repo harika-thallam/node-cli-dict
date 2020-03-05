@@ -2,6 +2,7 @@ const definition = require('./definition');
 const synonym = require('./synonym');
 const antonym = require('./antonym');
 const example = require('./examples');
+const fulldetails = require('./fulldetails');
 //module to process user input
 
 async function processInput(input)
@@ -36,15 +37,15 @@ async function validate(option,word="")
     case "syn":
                 console.log(`fetching synonym of ${word}`);
                 return await synonym.getSynonym(word);
-    case "ant"://TODO:make call to receive antonym of the entered word
+    case "ant":
                 console.log(`fetching antonym of ${word}`);
                 return await antonym.getAntonym(word);
-    case "ex"://TODO:make call to receive example usage of the entered word
+    case "ex":
                console.log(`fetching example of ${word}`);
                return await example.getExamples(word);
-    case "full"://TODO:make calls to display all the above information
+    case "full":
                console.log(`fetching information of ${word}`); 
-               break;
+               return await fulldetails.getFulldetails(word);
     case "randomn"://TODO:make call to display details of randomn word     
                console.log(`fetching details of randomn word`); 
                break;
