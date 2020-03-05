@@ -1,12 +1,17 @@
 var Input = require('./processinput.js');
-  console.log("give your input : ");
-    process.stdin.once('data', (input) => {
+
+
+
+    console.log("give your input : ");
+ 
+    process.stdin.once('data',async (input) => {
     let inputOption = input.toString().trim();
     if(inputOption.length)
     {
         console.log("received input");
         var stringArray = inputOption.split(/\s+/);
-        Input.processInput(stringArray);
+        var tasktocomplete=Input.processInput(stringArray);
+        await Promise.all(tasktocomplete);
     }
     else
     {
@@ -15,4 +20,7 @@ var Input = require('./processinput.js');
     }
     process.exit();
 });
+
+
+  
  

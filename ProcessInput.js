@@ -1,7 +1,7 @@
 const definition = require('./definition.js');
 //module to process user input
 
-function processInput(input)
+async function processInput(input)
 {
   if(input.length == 0)
   {
@@ -11,9 +11,7 @@ function processInput(input)
   }
   else if(input.length == 2 )
   {
-      //TODO:call method for processing arguments and validation
-      validate(input[0],input[1]);
-      console.log("arguments array size is 2");
+      return await validate(input[0],input[1]);
   }
   else if(input.length == 1)
   {
@@ -27,14 +25,13 @@ function processInput(input)
      console.error("invalid input");
   }
 }
-function validate(option,word="")
+async function validate(option,word="")
 {
   switch(option)
   {
     case "defn"://TODO:make call to receive definition of the entered word
                 console.log(`fetching definition of ${word}`);
-                definition.getDefinition(word);
-                break;
+                return await definition.getDefinition(word);
     case "syn"://TODO:make call to receive synonym of the entered word
                 console.log(`fetching synonym of ${word}`);
                 break;
