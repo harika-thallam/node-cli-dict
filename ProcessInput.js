@@ -1,4 +1,7 @@
-const definition = require('./definition.js');
+const definition = require('./definition');
+const synonym = require('./synonym');
+const antonym = require('./antonym');
+const example = require('./examples');
 //module to process user input
 
 async function processInput(input)
@@ -6,8 +9,7 @@ async function processInput(input)
   if(input.length == 0)
   {
       //TODO:call method to display randomn word details
-      validate("randomn");
-      console.log("arguments array empty");
+      return await validate("randomn");
   }
   else if(input.length == 2 )
   {
@@ -16,8 +18,7 @@ async function processInput(input)
   else if(input.length == 1)
   {
       //TODO:check if argument if play and call the appropraite method
-      validate(input[0]);
-      console.log("arguments array size is 1");
+      return await validate(input[0]);
   }
   else if(input.length > 2)
   {
@@ -29,18 +30,18 @@ async function validate(option,word="")
 {
   switch(option)
   {
-    case "defn"://TODO:make call to receive definition of the entered word
+    case "defn":
                 console.log(`fetching definition of ${word}`);
                 return await definition.getDefinition(word);
-    case "syn"://TODO:make call to receive synonym of the entered word
+    case "syn":
                 console.log(`fetching synonym of ${word}`);
-                break;
+                return await synonym.getSynonym(word);
     case "ant"://TODO:make call to receive antonym of the entered word
                 console.log(`fetching antonym of ${word}`);
-               break;
+                return await antonym.getAntonym(word);
     case "ex"://TODO:make call to receive example usage of the entered word
                console.log(`fetching example of ${word}`);
-               break;
+               return await example.getExamples(word);
     case "full"://TODO:make calls to display all the above information
                console.log(`fetching information of ${word}`); 
                break;
@@ -52,4 +53,7 @@ async function validate(option,word="")
                break;
   }
 }
+
+//var into = ["syn","single"];
+//processInput(into);
 module.exports.processInput = processInput;
