@@ -16,7 +16,8 @@ var Input = require('./processinput.js');
     else
     {
         console.log("no input");
-        Input.processInput();
+        var tasktocomp=Input.processInput("");
+        await Promise.all(tasktocomp);
     }
     process.exit();
 });

@@ -1,4 +1,4 @@
-const Result = require('./httpsclient.js');
+const Result = require('./httpsclient');
 
 async function getExamples(findword) {
     var request ="word/"+String(findword)+"/examples";

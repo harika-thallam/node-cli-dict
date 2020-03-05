@@ -1,9 +1,9 @@
-const Result = require('./httpsclient.js');
+const Result = require('./httpsclient');
 
-async function getAntonym (findword){
+async function getSynonym (findword) {
     var request ="word/"+String(findword)+"/relatedWords";
     console.log(request);
     await Result.getResult(request);
 }
 
-module.exports.getAntonym = getAntonym;
+module.exports.getSynonym = getSynonym;

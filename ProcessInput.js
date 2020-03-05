@@ -1,15 +1,15 @@
-const definition = require('./definition');
-const synonym = require('./synonym');
-const antonym = require('./antonym');
-const example = require('./examples');
-const fulldetails = require('./fulldetails');
+const definition = require('./src/words/definition');
+const synonym = require('./src/words/synonym');
+const antonym = require('./src/words/antonym');
+const example = require('./src/words/examples');
+const fulldetails = require('./src/words/fulldetails');
+const randomn = require('./src/words/randomn');
 //module to process user input
 
 async function processInput(input)
 {
   if(input.length == 0)
   {
-      //TODO:call method to display randomn word details
       return await validate("randomn");
   }
   else if(input.length == 2 )
@@ -18,7 +18,6 @@ async function processInput(input)
   }
   else if(input.length == 1)
   {
-      //TODO:check if argument if play and call the appropraite method
       return await validate(input[0]);
   }
   else if(input.length > 2)
@@ -48,7 +47,7 @@ async function validate(option,word="")
                return await fulldetails.getFulldetails(word);
     case "randomn"://TODO:make call to display details of randomn word     
                console.log(`fetching details of randomn word`); 
-               break;
+               return await randomn.getRandomn();
     case "play"://TODO:make calls to display details of the word and then guess the word
                console.log(`word play`); 
                break;
@@ -57,4 +56,5 @@ async function validate(option,word="")
 
 //var into = ["syn","single"];
 //processInput(into);
+//processInput();
 module.exports.processInput = processInput;
