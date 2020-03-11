@@ -1,17 +1,27 @@
-#!/usr/bin/env node
+var Input = require('./processinput.js');
 
-  console.log("give your input : ");
-    process.stdin.once('data', (input) => {
-    let recevive = input.toString().trim();
-    if(recevive.Length)
+
+
+    console.log("give your input : ");
+ 
+    process.stdin.once('data',async (input) => {
+    let inputOption = input.toString().trim();
+    if(inputOption.length)
     {
-        var stringArray = recevive.split(/\s+/);
-        console.log("Hello, "+ stringArray[0] + "!"+ stringArray[1]);
+        console.log("received input");
+        var stringArray = inputOption.split(/\s+/);
+        var tasktocomplete=Input.processInput(stringArray);
+        await Promise.all(tasktocomplete);
     }
     else
     {
         console.log("no input");
+        var tasktocomp=Input.processInput("");
+        await Promise.all(tasktocomp);
     }
     process.exit();
 });
+
+
+  
  
