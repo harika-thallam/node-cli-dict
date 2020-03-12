@@ -1,6 +1,6 @@
 
 # Intoduction
-This is a cli tool for using fetching data related words from an already hosted endpoint.
+This is a cli tool for fetching data related words from an already hosted backend.
 ------------------------------------------------------------------------------------------
 # Steps to use :
 
